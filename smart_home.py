@@ -1,10 +1,17 @@
 import json
-import subprocess
+import os
+import shutil
+import subprocess  # nosec B404 - only used with a fixed argument list below
+from pathlib import Path
 
-HUB_HOST = "0.0.0.0"
+# Bind to localhost by default; exposing the hub on every interface must be
+# an explicit choice made through the environment, not a hard-coded default.
+HUB_HOST = os.environ.get("SMART_HOME_HUB_HOST", "127.0.0.1")
 HUB_PORT = 8080
 POWER_USAGE = {"light" : 10, "fan": 60, "thermostat": 1500, "tv": 120}
-HUB_PASSWORD = "smarthome-demo"
+# Secrets never live in source code: read the password from the environment.
+HUB_PASSWORD = os.environ.get("SMART_HOME_HUB_PASSWORD", "")
+SCENES_DIR = Path(__file__).resolve().parent / "scenes"
 devices = {}
 
 
@@ -48,7 +55,17 @@ def hubAddress():
 
 def runScene(sceneScript):
     # Helper kept for the lab: not called by the demo
-    subprocess.call("bash scenes/" + sceneScript, shell=True)
+    script = (SCENES_DIR / sceneScript).resolve()
+    # Only plain files directly inside scenes/ may run: this blocks
+    # "../../etc/x", absolute paths and "a.sh; rm -rf ~" style input.
+    if script.parent != SCENES_DIR or not script.is_file():
+        raise ValueError("Unknown scene script: " + sceneScript)
+    bash = shutil.which("bash")
+    if bash is None:
+        raise RuntimeError("bash is not available on this system")
+    # A list of arguments with no shell: nothing in the name is interpreted.
+    result = subprocess.run([bash, str(script)], check=False)  # nosec B603
+    return result.returncode
 
 
 def main():
