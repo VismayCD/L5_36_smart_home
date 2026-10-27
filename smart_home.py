@@ -15,7 +15,7 @@ from pathlib import Path
 # an explicit choice made through the environment, not a hard-coded default.
 HUB_HOST = os.environ.get("SMART_HOME_HUB_HOST", "127.0.0.1")
 HUB_PORT = 8080
-POWER_USAGE = {"light" : 10, "fan": 60, "thermostat": 1500, "tv": 120}
+POWER_USAGE = {"light": 10, "fan": 60, "thermostat": 1500, "tv": 120}
 # Secrets never live in source code: read the password from the environment.
 HUB_PASSWORD = os.environ.get("SMART_HOME_HUB_PASSWORD", "")
 SCENES_DIR = Path(__file__).resolve().parent / "scenes"
@@ -73,6 +73,7 @@ def power_usage():
     active = [info for info in DEVICES.values() if info["on"]]
     return sum(POWER_USAGE.get(info["kind"], 0) for info in active)
 
+
 def save_state(file_name="home_state.json"):
     """Write every device and its state to a JSON file."""
     with open(file_name, "w", encoding="utf-8") as state_file:
@@ -115,9 +116,10 @@ def main():
     set_temperature("Ceiling Light", 20)
     print("Bedroom devices:", devices_in_room("Bedroom"))
     print("Current power use (W):", power_usage())
-    print("Hub address:", hub_address()) # for app setup
+    print("Hub address:", hub_address())  # for app setup
     print("Light settings:", DEVICES["Ceiling Light"]["settings"])
-    print("Devices on:", [name for name, info in DEVICES.items() if info["on"]])
+    devices_on = [name for name, info in DEVICES.items() if info["on"]]
+    print("Devices on:", devices_on)
     save_state()
 
 

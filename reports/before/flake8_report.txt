@@ -1,0 +1,4 @@
+smart_home.py:6:23: E203 whitespace before ':'
+smart_home.py:40:1: E302 expected 2 blank lines, found 1
+smart_home.py:66:40: E261 at least two spaces before inline comment
+smart_home.py:68:80: E501 line too long (80 > 79 characters)
