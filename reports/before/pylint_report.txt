@@ -26,6 +26,6 @@ smart_home.py:49:0: C0103: Function name "runScene" doesn't conform to snake_cas
 smart_home.py:49:13: C0103: Argument name "sceneScript" doesn't conform to snake_case naming style (invalid-name)
 smart_home.py:54:0: C0116: Missing function or method docstring (missing-function-docstring)
 
------------------------------------
-Your code has been rated at 4.80/10
+-------------------------------------------------------------------
+Your code has been rated at 4.80/10 (previous run: 10.00/10, -5.20)
 
