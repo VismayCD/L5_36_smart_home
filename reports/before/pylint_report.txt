@@ -1,0 +1,31 @@
+************* Module smart_home
+smart_home.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+smart_home.py:11:0: C0116: Missing function or method docstring (missing-function-docstring)
+smart_home.py:11:0: C0103: Function name "addDevice" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:11:14: C0103: Argument name "deviceName" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:11:0: W0102: Dangerous default value {} as argument (dangerous-default-value)
+smart_home.py:16:0: C0116: Missing function or method docstring (missing-function-docstring)
+smart_home.py:16:0: C0103: Function name "toggleDevice" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:16:17: C0103: Argument name "deviceName" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:16:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+smart_home.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)
+smart_home.py:23:0: C0103: Function name "setTemperature" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:23:19: C0103: Argument name "deviceName" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:32:0: C0116: Missing function or method docstring (missing-function-docstring)
+smart_home.py:32:0: C0103: Function name "devicesInRoom" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:36:0: C0116: Missing function or method docstring (missing-function-docstring)
+smart_home.py:36:0: C0103: Function name "powerUsage" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:40:0: C0116: Missing function or method docstring (missing-function-docstring)
+smart_home.py:40:0: C0103: Function name "saveState" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:40:14: C0103: Argument name "fileName" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:41:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+smart_home.py:45:0: C0116: Missing function or method docstring (missing-function-docstring)
+smart_home.py:45:0: C0103: Function name "hubAddress" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:49:0: C0116: Missing function or method docstring (missing-function-docstring)
+smart_home.py:49:0: C0103: Function name "runScene" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:49:13: C0103: Argument name "sceneScript" doesn't conform to snake_case naming style (invalid-name)
+smart_home.py:54:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+-----------------------------------
+Your code has been rated at 4.80/10
+
